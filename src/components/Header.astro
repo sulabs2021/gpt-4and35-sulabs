@@ -1,0 +1,65 @@
+---
+import Logo from "./Logo.astro"
+import ThemeToggle from "./ThemeToggle.astro"
+export const prerender = true
+---
+
+<header>
+  <div class="flex items-center mt-2">
+     <span class="text-2xl text-slate font-extrabold mr-1">ChatGPT</span>
+     <span class="text-2xl text-transparent font-extrabold bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-600">
+      For alimtechs
+     </span>
+    </div>
+    <p mt-1 text-slate op-60>OpenAI API，兼容gpt-4和gpt-3.5-turbo</p>
+  <div class="flex justify-between items-center py-1">
+    
+    <ThemeToggle />
+  </div>
+</header>
+
+<script is:inline>
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+</script>
+
+<style is:inline>
+  .after .title,
+  .after #themeToggle,
+  .after .logo,
+  .after #message-container {
+    transition-property: transform, opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+  }
+
+  .before .logo {
+    transform: translate3D(25px, 150px, 0) scale(2);
+  }
+
+  .before #themeToggle {
+    transform: translate3D(0, 200px, 0) rotate(540deg);
+  }
+
+  .before .title,
+  .before #message-container {
+    transform: translate3D(0, 200px, 0);
+  }
+
+  .before #themeToggle,
+  .before #message-container {
+    opacity: 0;
+  }
+
+  #themeToggle {
+    border: 0;
+    opacity: 1;
+  }
+  .after #message-container {
+    opacity: 1;
+  }
+</style>
